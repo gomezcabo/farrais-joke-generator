@@ -2,15 +2,15 @@
   <div id="app">
     <!-- <textarea v-model="joke"></textarea> -->
     <div id="picture">
-      <div id="quote" contenteditable="true" :style="{ 'font-size': `${fontSize}px` }">{{ joke }}</div>
+      <div id="quote" contenteditable="true" :style="{ 'font-size': `${fontSize}vmin` }">{{ joke }}</div>
     </div>
     <div id="actions">
       <!-- <div class="action" @click="fontSize += 2"> + </div>
       <div class="action" @click="fontSize -= 2"> – </div> -->
       <vue-slide-bar
         id="slider"
-        :min="20"
-        :max="100"
+        :min="5"
+        :max="20"
         v-model="fontSize"
         :processStyle="{ backgroundColor: 'white' }"
         :tooltipStyles="{ backgroundColor: 'white', borderColor: 'white', color: 'black' }"
@@ -28,7 +28,7 @@ export default {
   name: 'app',
   data () {
     return {
-      fontSize: 24,
+      fontSize: 8,
       joke: 'Escribe aquí tu chiste'
     }
   },
@@ -120,11 +120,13 @@ body {
     position: relative;
     margin: 0 auto;
     margin-bottom: 0px;
-    background-color: #0085e1;
+    background-color: #8950ff;
     color: white;
-    //background-image: url('./assets/background.png');
+    background-image: url('./assets/logo.png');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 16% 8%;
+    background-position-x: calc(98%);
+    background-position-y: calc(98%);
 
     img {
       position: absolute;
