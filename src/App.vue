@@ -43,7 +43,7 @@ export default {
       }).then(canvas => {
         var myImage = canvas.toDataURL();
         const time = new Date().getTime();
-        this.downloadURI('data:' + myImage, `chiste${time}.png`);
+        this.downloadURI(myImage, `chiste${time}.png`);
       });
     },
     downloadURI(uri, name) {
