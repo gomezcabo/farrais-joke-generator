@@ -114,13 +114,13 @@ body {
     position: relative;
     margin: 0 auto;
     margin-bottom: 0px;
-    background-color: #6e5bb9;
+    background-color: #47abbb;
     color: white;
     position: relative;
 
     img {
       position: absolute;
-      bottom: 1.5%;
+      bottom: 1%;
       right: 1.5%;
       width: 20%;
     }
