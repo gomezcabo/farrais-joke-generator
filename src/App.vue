@@ -3,6 +3,7 @@
     <!-- <textarea v-model="joke"></textarea> -->
     <div id="picture">
       <div id="quote" contenteditable="true" :style="{ 'font-size': `${fontSize}vmin` }">{{ joke }}</div>
+      <img id="logo" src="./assets/logo.svg"/>
     </div>
     <div id="actions">
       <!-- <div class="action" @click="fontSize += 2"> + </div>
@@ -74,17 +75,10 @@ body {
 }
 
 #app {
-  textarea {
-    width: 100%;
-    height: calc(100vmax - 100vmin - 20px);
-  }
-
   #actions {
     width: calc(100vmin - 20px);
     margin: 0 auto;
-    margin-left: 4px;
-    margin-right: 5px;
-    padding: 0 5px 0 8px;
+    padding: 0 0px 0 12px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -120,22 +114,15 @@ body {
     position: relative;
     margin: 0 auto;
     margin-bottom: 0px;
-    background-color: #8950ff;
+    background-color: #6e5bb9;
     color: white;
-    background-image: url('./assets/logo.png');
-    background-repeat: no-repeat;
-    background-size: 16% 8%;
-    background-position-x: calc(98%);
-    background-position-y: calc(98%);
+    position: relative;
 
     img {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 10;
+      bottom: 1.5%;
+      right: 1.5%;
+      width: 20%;
     }
   }
 
@@ -144,6 +131,8 @@ body {
     width: 100%;
     text-align: center;
     white-space: pre-line;
+    position: relative;
+    top: -10px;
   }
 }
 
