@@ -10,7 +10,7 @@
       <vue-slide-bar
         id="slider"
         :min="20"
-        :max="60"
+        :max="100"
         v-model="fontSize"
         :processStyle="{ backgroundColor: 'white' }"
         :tooltipStyles="{ backgroundColor: 'white', borderColor: 'white', color: 'black' }"
@@ -66,7 +66,7 @@ $primaryColor: #d1ecff;
   box-sizing: border-box;
 }
 
-body, html {
+body {
   margin: 0;
   padding: 10px;
   background-color: #444;
@@ -76,13 +76,15 @@ body, html {
 #app {
   textarea {
     width: 100%;
-    height: calc(100vmax - 100vmin - 50px);
+    height: calc(100vmax - 100vmin - 20px);
   }
 
   #actions {
-    width: calc(100vmin - 40px);
+    width: calc(100vmin - 20px);
     margin: 0 auto;
-    padding: 0 10px;
+    margin-left: 4px;
+    margin-right: 5px;
+    padding: 0 5px 0 8px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -113,8 +115,8 @@ body, html {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    width: calc(100vmin - 60px);
-    height: calc(100vmin - 60px);
+    width: calc(100vmin - 20px);
+    height: calc(100vmin - 20px);
     position: relative;
     margin: 0 auto;
     margin-bottom: 0px;
