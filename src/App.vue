@@ -5,9 +5,9 @@
       id="picture"
       :style="selectedColor"
     >
-      <div id="quote" contenteditable="true" :style="{ 'font-size': `${fontSize}vmin` }">
-        {{ joke }}
-      </div>
+      <div id="quote" @click="clearIfNeeded" contenteditable="true" :style="{ 'font-size': `${fontSize}vmin` }"><!--
+        to avoid new lines -->{{ joke }}<!--
+      --></div>
       <img id="logo" src="./assets/logo.svg"/>
     </div>
     <div id="colors">
@@ -17,7 +17,9 @@
         :key="color.code"
         :style="color"
         @click="selectedColor = color"
-      ></div>
+      >
+        A
+      </div>
     </div>
     <div id="actions">
       <!-- <div class="action" @click="fontSize += 2"> + </div>
@@ -47,17 +49,24 @@ const colors = [
   { backgroundColor: '#7b4596', color: '#ffffff' },
 ]
 
+const defaultJoke = 'Escribe aquí tu chiste'
+
 export default {
   name: 'app',
   data () {
     return {
       fontSize: 8,
-      joke: 'Escribe aquí tu chiste',
+      joke: defaultJoke,
       colors,
       selectedColor: colors[2]
     }
   },
   methods: {
+    clearIfNeeded () {
+      if (this.joke === defaultJoke) {
+        this.joke = ''
+      }
+    },
     exportImage () {
       const div = document.getElementById('picture')
 
@@ -140,6 +149,11 @@ body {
       cursor: pointer;
       background-color: #eee;
       border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-family: 'Acme', sans-serif;
 
       &:not(:last-child) {
         margin-right: 10px;
