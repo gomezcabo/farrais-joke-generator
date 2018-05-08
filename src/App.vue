@@ -175,6 +175,7 @@ body {
     background-color: #47abbb;
     color: white;
     position: relative;
+    overflow: hidden;
 
     img {
       position: absolute;
