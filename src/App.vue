@@ -1,9 +1,23 @@
 <template>
   <div id="app">
     <!-- <textarea v-model="joke"></textarea> -->
-    <div id="picture">
-      <div id="quote" contenteditable="true" :style="{ 'font-size': `${fontSize}vmin` }">{{ joke }}</div>
+    <div
+      id="picture"
+      :style="selectedColor"
+    >
+      <div id="quote" contenteditable="true" :style="{ 'font-size': `${fontSize}vmin` }">
+        {{ joke }}
+      </div>
       <img id="logo" src="./assets/logo.svg"/>
+    </div>
+    <div id="colors">
+      <div
+        class="color"
+        v-for="color of colors"
+        :key="color.code"
+        :style="color"
+        @click="selectedColor = color"
+      ></div>
     </div>
     <div id="actions">
       <!-- <div class="action" @click="fontSize += 2"> + </div>
@@ -25,12 +39,22 @@
 import html2canvas from 'html2canvas'
 import VueSlideBar from 'vue-slide-bar'
 
+const colors = [
+  { backgroundColor: '#333333', color: '#ffffff' },
+  { backgroundColor: '#ffffff', color: '#333333' },
+  { backgroundColor: '#47abbb', color: '#ffffff' },
+  { backgroundColor: '#49a8fd', color: '#ffffff' },
+  { backgroundColor: '#7b4596', color: '#ffffff' },
+]
+
 export default {
   name: 'app',
   data () {
     return {
       fontSize: 8,
-      joke: 'Escribe aquí tu chiste'
+      joke: 'Escribe aquí tu chiste',
+      colors,
+      selectedColor: colors[2]
     }
   },
   methods: {
@@ -103,6 +127,26 @@ body {
     }
   }
 
+  #colors {
+    display: flex;
+    margin: 0 auto;
+    width: calc(100vmin - 20px);
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    .color {
+      flex: 1;
+      height: 46px;
+      cursor: pointer;
+      background-color: #eee;
+      border-radius: 4px;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+   }
+  }
+
   #picture {
     font-family: 'Acme', sans-serif;
     display: flex;
@@ -132,7 +176,7 @@ body {
     text-align: center;
     white-space: pre-line;
     position: relative;
-    top: -10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.51);
   }
 }
 
